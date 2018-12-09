@@ -32,7 +32,6 @@ public class WorkDate {
 
         Calendar workDateTo;
 
-        // boolean method
         if (isWorkDateToday(dateTo)) {
             workDateTo = Calendar.getInstance();
         } else {

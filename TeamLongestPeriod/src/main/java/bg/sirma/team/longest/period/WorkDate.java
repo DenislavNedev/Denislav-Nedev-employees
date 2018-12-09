@@ -27,9 +27,7 @@ public class WorkDate {
     }
 
     public static long getTotalDays(WorkDate dateFrom, WorkDate dateTo) {
-
         Calendar workDateFrom = new GregorianCalendar(dateFrom.getYear(), dateFrom.getMonth(), dateFrom.getDay());
-
         Calendar workDateTo;
 
         if (isWorkDateToday(dateTo)) {

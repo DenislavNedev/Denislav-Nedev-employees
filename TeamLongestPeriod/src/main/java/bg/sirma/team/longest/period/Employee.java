@@ -2,18 +2,18 @@ package bg.sirma.team.longest.period;
 
 public class Employee {
 
-    private final int EmpID;
-    private final int ProjectID;
-    private final WorkDate DateFrom;
-    private final WorkDate DateTo;
-    private final long workingPeriod;
+    private int empID;
+    private int projectID;
+    private WorkDate dateFrom;
+    private WorkDate dateTo;
+    private long workingPeriod;
 
     public Employee(int empID, int projectID, WorkDate dateFrom, WorkDate dateTo, long workingPeriod) {
-        this.EmpID = empID;
-        this.ProjectID = projectID;
-        this.DateFrom = dateFrom;
-        this.DateTo = dateTo;
-        this.workingPeriod=workingPeriod;
+        this.empID = empID;
+        this.projectID = projectID;
+        this.dateFrom = dateFrom;
+        this.dateTo = dateTo;
+        this.workingPeriod = workingPeriod;
     }
 
     public long getWorkingPeriod() {
@@ -21,24 +21,24 @@ public class Employee {
     }
 
     public int getEmpID() {
-        return EmpID;
+        return empID;
     }
 
     public int getProjectID() {
-        return ProjectID;
+        return projectID;
     }
 
     public WorkDate getDateFrom() {
-        return DateFrom;
+        return dateFrom;
     }
 
     public WorkDate getDateTo() {
-        return DateTo;
+        return dateTo;
     }
 
     @Override
     public String toString() {
-        return "Employee [EmpID=" + EmpID + ", ProjectID=" + ProjectID + ", DateFrom=" + DateFrom + ", DateTo=" + DateTo
+        return "Employee [EmpID=" + empID + ", ProjectID=" + projectID + ", DateFrom=" + dateFrom + ", DateTo=" + dateTo
                 + "]";
     }
 

@@ -8,7 +8,6 @@ import java.util.List;
 
 public class EmployeeReader {
 
-     
     public static List<Employee> createListOfEmployees(String filePath) throws IOException {
 
         List<Employee> employees = new ArrayList<>();
@@ -23,14 +22,14 @@ public class EmployeeReader {
         return employees;
     }
 
-    private static Employee createEmployee(String invoiceData) {
-        String[] parts = invoiceData.split(",");
+    private static Employee createEmployee(String employeeData) {
+        String[] parts = employeeData.split(",");
         int currentEmpID = Integer.parseInt(parts[0]);
         int currentProjectID = Integer.parseInt(parts[1]);
         WorkDate currentDateFrom = new WorkDate(parts[2]);
         WorkDate currentDateTo = new WorkDate(parts[3]);
         long currentWorkingPeriod = WorkDate.getTotalDays(currentDateFrom, currentDateTo);
-        
-        return new Employee(currentEmpID, currentProjectID, currentDateFrom, currentDateTo,currentWorkingPeriod); 
+
+        return new Employee(currentEmpID, currentProjectID, currentDateFrom, currentDateTo, currentWorkingPeriod);
     }
 }

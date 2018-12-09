@@ -6,22 +6,18 @@ import org.junit.Test;
 
 public class SolutionTest {
 
-    
-    
     @Test
     public void test_finding_the_team_first_employee() {
-  
         Solution currentSolution = new Solution("./src/test/resources/test.txt");
         currentSolution.findTeamLongestPeriod();
-        assertEquals(currentSolution.getFirstEmpID(),115);
+        assertEquals(115, currentSolution.getFirstEmpID());
     }
-    
+
     @Test
     public void test_finding_the_team_second_employee() {
-  
         Solution currentSolution = new Solution("./src/test/resources/test.txt");
         currentSolution.findTeamLongestPeriod();
-        assertEquals(currentSolution.getSecondEmpID(),143);
+        assertEquals(currentSolution.getSecondEmpID(), 143);
     }
-    
+
 }

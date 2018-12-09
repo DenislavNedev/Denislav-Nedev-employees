@@ -9,34 +9,45 @@ public class Solution {
     private int secondEmpID;
 
     public Solution(String filePath) {
-
-        try {
-            employees = EmployeeReader.createListOfEmployees(filePath);
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new IllegalArgumentException("There is an error reading the file");
-        }
-
+        this.employees = initializeListOfEmployees(filePath);
+        this.firstEmpID = 0;
+        this.secondEmpID = 0;
     }
 
     public void findTeamLongestPeriod() {
         long longestPeriod = 0;
 
-        for (Employee first_employee : employees) {
-            for (Employee second_employee : employees) {
+        for (Employee firstEmployee : employees) {
+            for (Employee secondEmployee : employees) {
                 long currentPeriod = 0;
-                
-                if (first_employee.getProjectID() == second_employee.getProjectID()
-                        && first_employee.getEmpID() != second_employee.getEmpID()) {
-                    currentPeriod = first_employee.getWorkingPeriod() + second_employee.getWorkingPeriod();
+
+                if (isProjectIDSame(firstEmployee, secondEmployee)) {
+                    currentPeriod = firstEmployee.getWorkingPeriod() + secondEmployee.getWorkingPeriod();
                 }
-                
+
                 if (currentPeriod > longestPeriod) {
-                    firstEmpID = first_employee.getEmpID();
-                    secondEmpID = second_employee.getEmpID();
+                    firstEmpID = firstEmployee.getEmpID();
+                    secondEmpID = secondEmployee.getEmpID();
                 }
             }
         }
+    }
+
+    private boolean isProjectIDSame(Employee firstEmployee, Employee secondEmployee) {
+        return firstEmployee.getProjectID() == secondEmployee.getProjectID()
+                && firstEmployee.getEmpID() != secondEmployee.getEmpID();
+    }
+
+    private List<Employee> initializeListOfEmployees(String filePath) {
+        List<Employee> newEmployees;
+        try {
+            newEmployees = EmployeeReader.createListOfEmployees(filePath);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new IllegalArgumentException("There is an error reading the file");
+        }
+        return newEmployees;
+
     }
 
     public List<Employee> getEmployees() {

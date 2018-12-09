@@ -10,7 +10,7 @@ public class SolutionTest {
     public void test_finding_the_team_first_employee() {
         Solution currentSolution = new Solution("./src/test/resources/test.txt");
         currentSolution.findTeamLongestPeriod();
-        assertEquals(115, currentSolution.getFirstEmpID());
+        assertEquals(currentSolution.getFirstEmpID(), 115);
     }
 
     @Test
